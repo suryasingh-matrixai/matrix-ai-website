@@ -45,7 +45,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
   }
 
   function draw() {
-    ctx.fillStyle = 'rgba(6,7,10,0.1)';
+    ctx.fillStyle = 'rgba(255,255,255,0.12)';
     ctx.fillRect(0, 0, width, height);
     ctx.font = fontSize + 'px monospace';
 
@@ -54,7 +54,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
       const x = i * fontSize;
       const y = drops[i] * fontSize;
       const roll = Math.random();
-      ctx.fillStyle = roll < 0.05 ? '#3a6df0' : roll < 0.1 ? '#28b463' : roll < 0.13 ? '#e0473a' : 'rgba(238,241,246,0.5)';
+      ctx.fillStyle = roll < 0.05 ? '#2f5fd6' : roll < 0.1 ? '#1f9d55' : roll < 0.13 ? '#d8402f' : 'rgba(20,22,28,0.35)';
       ctx.fillText(char, x, y);
 
       if (y > height && Math.random() > 0.975) drops[i] = 0;
