@@ -116,7 +116,29 @@ ul{list-style:none}
   border-radius:999px;
   margin-bottom:28px;
 }
-.dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(40,180,99,.18)}
+.dot{
+  position:relative;
+  width:7px;height:7px;
+  border-radius:50%;
+  background:var(--green);
+  box-shadow:0 0 0 3px rgba(31,157,85,.18);
+  flex:none;
+}
+.dot::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  border-radius:50%;
+  background:var(--green);
+  animation:dot-ping 1.8s cubic-bezier(0,0,.2,1) infinite;
+}
+@keyframes dot-ping{
+  0%{transform:scale(1);opacity:.6}
+  75%,100%{transform:scale(3.4);opacity:0}
+}
+@media (prefers-reduced-motion: reduce){
+  .dot::before{animation:none}
+}
 
 h1{
   font-size:clamp(38px,6vw,64px);
