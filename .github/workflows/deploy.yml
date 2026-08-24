@@ -13,6 +13,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Stamp cache-busting version
+        run: sed -i "s/__CACHE_BUST__/${GITHUB_SHA::8}/g" index.html
+
       - name: Deploy over FTPS to Hostinger
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
